@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Akka.TestKit.NUnit3</name>
+    </assembly>
+    <members>
+        <member name="T:Akka.TestKit.NUnit3.NUnitAssertions">
+            <summary>
+            Assertions for NUnit
+            </summary>
+        </member>
+        <member name="T:Akka.TestKit.NUnit3.TestKit">
+            <summary>
+            TestKit for NUnit.
+            </summary>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.#ctor(Akka.Actor.ActorSystem)">
+            <summary>
+            Create a new instance of the <see cref="T:Akka.TestKit.NUnit3.TestKit"/> for NUnit class.
+            If no <paramref name="system"/> is passed in, a new system 
+            with <see cref="P:Akka.TestKit.NUnit3.TestKit.DefaultConfig"/> will be created.
+            </summary>
+            <param name="system">Optional: The actor system.</param>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.#ctor(Akka.Configuration.Config,System.String)">
+            <summary>
+            Create a new instance of the <see cref="T:Akka.TestKit.NUnit3.TestKit"/> for NUnit class.
+            A new system with the specified configuration will be created.
+            </summary>
+            <param name="config">The configuration to use for the system.</param>
+            <param name="actorSystemName">Optional: the name of the system. Default: "test"</param>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.#ctor(System.String)">
+            <summary>
+            Create a new instance of the <see cref="T:Akka.TestKit.NUnit3.TestKit"/> for NUnit class.
+            A new system with the specified configuration will be created.
+            </summary>
+            <param name="config">The configuration to use for the system.</param>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.InitializeActorSystemOnSetUp">
+            <summary>
+            This method is called before each test run, it initializes the test including
+            creating and setting up the ActorSystem.
+            </summary>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.ShutDownActorSystemOnTearDown">
+            <summary>
+            This method is called after each test finishes, which calls
+            into the AfterAll method.
+            </summary>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.AfterAll">
+            <summary>
+            This method is called when a test ends. 
+            <remarks>If you override this, make sure you either call 
+            base.AfterTest() or <see cref="M:Akka.TestKit.TestKitBase.Shutdown(System.Nullable{System.TimeSpan},System.Boolean)">TestKitBase.Shutdown</see> to shut down
+            the system. Otherwise you'll leak memory.
+            </remarks>
+            </summary>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.Dispose">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+        </member>
+        <member name="M:Akka.TestKit.NUnit3.TestKit.Dispose(System.Boolean)">
+            <summary>Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.</summary>
+            <param name="disposing">if set to <c>true</c> the method has been called directly or indirectly by a 
+            user's code. Managed and unmanaged resources will be disposed.<br />
+            if set to <c>false</c> the method has been called by the runtime from inside the finalizer and only 
+            unmanaged resources can be disposed.</param>
+        </member>
+    </members>
+</doc>
