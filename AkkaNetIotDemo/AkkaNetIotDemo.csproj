@@ -58,6 +58,7 @@
     <Compile Include="Group\DeviceGroup.cs" />
     <Compile Include="IotApp.cs" />
     <Compile Include="IotSupervisor.cs" />
+    <Compile Include="Manager\DeviceManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Protocol\Protocol.cs" />
