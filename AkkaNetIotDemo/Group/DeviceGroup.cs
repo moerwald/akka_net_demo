@@ -12,6 +12,7 @@ namespace AkkaNetIotDemo.Group
     public class DeviceGroup : UntypedActor
     {
         private Dictionary<string, IActorRef> deviceIdToActor = new Dictionary<string, IActorRef>();
+        private Dictionary<IActorRef, string> actorToDeviceId = new Dictionary<IActorRef, string>();
 
         public DeviceGroup(string groupId)
         {
@@ -41,12 +42,24 @@ namespace AkkaNetIotDemo.Group
                         Log.Info($"Creating device actor for {trackMsg.DeviceId}");
                         var deviceActor = Context.ActorOf(Device.Device.Props(trackMsg.GroupId, trackMsg.DeviceId), $"device-{trackMsg.DeviceId}");
                         deviceIdToActor.Add(trackMsg.DeviceId, deviceActor);
+                        actorToDeviceId.Add(deviceActor, trackMsg.DeviceId);
+                        Context.Watch(deviceActor);
                         deviceActor.Forward(trackMsg);
                     }
                     break;
 
                 case RequestTrackDevice trackMsg:
                     Log.Warning($"Ignoring TrackDevice request for {trackMsg.GroupId}. This actor is responsible for {GroupId}");
+                    break;
+
+                case RequestDeviceList requestDeviceList:
+                    Sender.Tell(new ReplyDeviceList(requestDeviceList.RequestId, new HashSet<string>(deviceIdToActor.Keys)));
+                    break;
+
+                case Terminated t:
+                    var deviceId = actorToDeviceId[t.ActorRef];
+                    actorToDeviceId.Remove(t.ActorRef);
+                    deviceIdToActor.Remove(deviceId);
                     break;
             }
         }
