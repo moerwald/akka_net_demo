@@ -6,7 +6,7 @@ namespace AkkaNetIotDemo.Device
 {
     public class Device : UntypedActor
     {
-        private double _lastTemperatureReading;
+        private double? _lastTemperatureReading = null;
 
         public Device(string groupId, string deviceId)
         {
@@ -28,6 +28,14 @@ namespace AkkaNetIotDemo.Device
                     break;
                 case ReadTemperature read:
                     Sender.Tell(new RespondTemperature(read.RequestId, _lastTemperatureReading));
+                    break;
+
+                case RequestTrackDevice req when req.GroupId.Equals(GroupId) && req.DeviceId.Equals(DeviceId):
+                    Sender.Tell(DeviceRegistered.Instance);
+                    break;
+
+                case RequestTrackDevice req:
+                    Log.Warning($"Ignoring TrackDevice request for {req.GroupId}-{req.DeviceId}.This actor is responsible for {GroupId}-{DeviceId}.");
                     break;
 
                 default:

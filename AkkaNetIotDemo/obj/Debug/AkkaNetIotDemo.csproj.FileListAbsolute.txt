@@ -12,3 +12,17 @@ C:\Users\Mewald-T550\Documents\Visual Studio 2017\Projects\AkkaNetIotDemoSoltuio
 C:\Users\Mewald-T550\Documents\Visual Studio 2017\Projects\AkkaNetIotDemoSoltuio\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.csproj.CopyComplete
 C:\Users\Mewald-T550\Documents\Visual Studio 2017\Projects\AkkaNetIotDemoSoltuio\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.exe
 C:\Users\Mewald-T550\Documents\Visual Studio 2017\Projects\AkkaNetIotDemoSoltuio\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.pdb
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\AkkaNetIotDemo.exe.config
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\AkkaNetIotDemo.exe
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\AkkaNetIotDemo.pdb
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\Akka.dll
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\System.Collections.Immutable.dll
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\Akka.xml
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\bin\Debug\System.Collections.Immutable.xml
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.csprojAssemblyReference.cache
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.csproj.CoreCompileInputs.cache
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.csproj.CopyComplete
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.exe
+C:\Users\mewalda\source\repos\akka_net_demo\AkkaNetIotDemo\obj\Debug\AkkaNetIotDemo.pdb
