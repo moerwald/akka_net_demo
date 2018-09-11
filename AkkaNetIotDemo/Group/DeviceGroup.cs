@@ -3,9 +3,6 @@ using Akka.Event;
 using AkkaNetIotDemo.Protocol;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AkkaNetIotDemo.Group
 {
@@ -13,16 +10,13 @@ namespace AkkaNetIotDemo.Group
     {
         private Dictionary<string, IActorRef> deviceIdToActor = new Dictionary<string, IActorRef>();
         private Dictionary<IActorRef, string> actorToDeviceId = new Dictionary<IActorRef, string>();
+        private long nextCollectionId = 0L;
 
-        public DeviceGroup(string groupId)
-        {
-            GroupId = groupId;
-        }
-
+        public DeviceGroup(string groupId) => GroupId = groupId;
 
         protected override void PreStart() => Log.Info($"Device group {GroupId} started");
-        protected override void PostStop() => Log.Info($"Device group {GroupId} stopped");
 
+        protected override void PostStop() => Log.Info($"Device group {GroupId} stopped");
 
         protected ILoggingAdapter Log { get; } = Context.GetLogger();
 
@@ -32,6 +26,15 @@ namespace AkkaNetIotDemo.Group
         {
             switch (message)
             {
+                case RequestAllTemperatures requestAllTemperatures:
+                    Context.ActorOf(
+                        Actors.DeviceGroupQuery.Props(
+                            actorToDeviceId, 
+                            requestAllTemperatures.RequestId, 
+                            Sender, 
+                            TimeSpan.FromSeconds(3)));
+                    break;
+
                 case RequestTrackDevice trackMsg when trackMsg.GroupId.Equals(GroupId):
                     if (deviceIdToActor.TryGetValue(trackMsg.DeviceId, out var actorRef))
                     {
@@ -63,6 +66,7 @@ namespace AkkaNetIotDemo.Group
                     break;
             }
         }
+
         public static Props Props(string groupId) => Akka.Actor.Props.Create(() => new DeviceGroup(groupId));
     }
 }

@@ -97,8 +97,6 @@ namespace AkkaNetIotDemo.Actors
                        }
                        Requester.Tell(new RespondAllTemperatures(RequestId, replies));
                        Context.Stop(Self);
-
-
                        break;
                }
            };
